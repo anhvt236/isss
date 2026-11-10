@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ISSS – Định hướng du học</title>
+  <meta name="description" content="ISSS giúp học sinh chọn trường, chọn ngành, tìm hiểu cơ hội việc làm và hoàn thành hồ sơ du học Mỹ, Úc, Canada, Anh.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="vi_VN">
+  <meta property="og:site_name" content="ISSS">
+  <meta property="og:title" content="ISSS – Định hướng du học">
+  <meta property="og:description" content="Chọn trường, chọn ngành, so sánh chi phí, tìm học bổng và chuẩn bị hồ sơ du học Mỹ, Úc, Canada, Anh.">
+  <meta name="theme-color" content="#1f3b8f">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#/" class="logo" aria-label="ISSS – Trang chủ">
+        <span class="logo-mark">IS</span><span class="logo-text">ISSS<small>Định hướng du học</small></span>
+      </a>
+      <button class="nav-toggle" aria-label="Mở menu" aria-expanded="false">☰</button>
+      <nav class="main-nav" aria-label="Điều hướng chính">
+        <a href="#/truong" data-nav="truong">Trường</a>
+        <a href="#/nganh" data-nav="nganh">Ngành học</a>
+        <a href="#/viec-lam" data-nav="viec-lam">Việc làm</a>
+        <a href="#/hoc-bong" data-nav="hoc-bong">Học bổng</a>
+        <a href="#/chi-phi" data-nav="chi-phi">Chi phí</a>
+        <a href="#/lo-trinh" data-nav="lo-trinh">Lộ trình</a>
+        <a href="#/tu-van" data-nav="tu-van">Tư vấn</a>
+        <a href="#/ho-so" data-nav="ho-so" class="nav-cta">Hồ sơ của tôi <span class="badge" id="shortlist-count" hidden>0</span></a>
+      </nav>
+    </div>
+    <div class="journey" aria-label="Lộ trình">
+      <div class="container journey-inner">
+        <a href="#/truong" data-step="truong"><b>1</b> Chọn trường</a>
+        <span class="arrow">›</span>
+        <a href="#/nganh" data-step="nganh"><b>2</b> Chọn ngành</a>
+        <span class="arrow">›</span>
+        <a href="#/viec-lam" data-step="viec-lam"><b>3</b> Cơ hội việc làm</a>
+        <span class="arrow">›</span>
+        <a href="#/tu-van" data-step="tu-van"><b>4</b> Đăng ký &amp; tư vấn</a>
+        <span class="arrow">›</span>
+        <a href="#/ho-so" data-step="ho-so"><b>5</b> Hoàn thành hồ sơ</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="app" class="container" tabindex="-1"></main>
+  <div id="route-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>ISSS</strong>
+        <p>Nền tảng định hướng du học cho học sinh Việt Nam: chọn trường, chọn ngành, hiểu cơ hội việc làm và chuẩn bị hồ sơ.</p>
+      </div>
+      <div>
+        <strong>Khám phá</strong>
+        <a href="#/truong">Trường</a><a href="#/nganh">Ngành học</a><a href="#/viec-lam">Việc làm</a><a href="#/so-sanh">So sánh trường</a><a href="#/hoc-bong">Học bổng</a><a href="#/chi-phi">Tính chi phí</a><a href="#/lo-trinh">Lộ trình theo kỳ nhập học</a><a href="#/hoi-dap">Câu hỏi thường gặp</a><a href="#/nguon">Nguồn tham khảo</a>
+      </div>
+      <div>
+        <strong>Hỗ trợ</strong>
+        <a href="#/tu-van">Đăng ký tư vấn</a><a href="#/ho-so">Hồ sơ của tôi</a>
+      </div>
+      <p class="footer-note" id="data-note"></p>
+    </div>
+  </footer>
+
+  <!-- Chatbot -->
+  <button class="chat-fab" id="chat-fab" aria-label="Mở trợ lý tư vấn">💬<span>Hỏi trợ lý</span></button>
+  <section class="chat" id="chat" hidden role="dialog" aria-modal="true" aria-labelledby="chat-title">
+    <header class="chat-head">
+      <div><strong id="chat-title">Trợ lý ISSS</strong><small>Gợi ý ngành &amp; trường cho bạn</small></div>
+      <button class="chat-close" id="chat-close" aria-label="Đóng trợ lý">✕</button>
+    </header>
+    <div class="chat-body" id="chat-body" aria-live="polite"></div>
+    <form class="chat-input" id="chat-form">
+      <label for="chat-text" class="sr-only">Câu hỏi cho trợ lý</label>
+      <input id="chat-text" type="text" placeholder="Nhập câu hỏi, ví dụ: học phí Úc?" autocomplete="off" enterkeyhint="send">
+      <button type="submit">Gửi</button>
+    </form>
+  </section>
+
+  <div class="compare-tray" id="compare-tray" hidden></div>
+  <div class="toast" id="toast" role="status" hidden></div>
+
+  <script src="js/config.js"></script>
+  <script src="data/data.js"></script>
+  <script src="js/faq.js"></script>
+  <script src="js/roadmap.js"></script>
+  <script src="js/resources.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/chatbot.js"></script>
+</body>
+</html>
